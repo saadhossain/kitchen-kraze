@@ -3,14 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaHeart, FaUser } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
-import logo from '../public/assets/kitchen kraze logo.png';
+import logo from '../../public/assets/kitchen kraze logo.png'
 import { usePathname } from 'next/navigation';
-
-
-interface linkType {
-    title: string,
-    href: string
-}
+import { LinkType } from '../types/LinkType';
 
 const Header = () => {
     const navLinks = [
@@ -29,7 +24,7 @@ const Header = () => {
                 <div>
                     <ul className='flex gap-5'>
                         {
-                            navLinks.map((link: linkType) => <li key={link.href}>
+                            navLinks.map((link: LinkType) => <li key={link.href}>
                                 <Link
                                     href={link.href}
                                     className={`${activePath === link.href ? 'text-secondary border-t-2 border-secondary':'text-primary'} transition-all`}
