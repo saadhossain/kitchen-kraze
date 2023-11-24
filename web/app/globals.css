@@ -19,3 +19,8 @@
 body {
   
 }
+
+.footer-feature:hover .feature-icon{
+  color: #F37520;
+  transition: color 0.4s ease-in-out;
+}
