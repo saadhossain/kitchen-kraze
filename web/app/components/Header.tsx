@@ -18,7 +18,7 @@ const Header = () => {
     ];
     const activePath = usePathname();
     return (
-        <header className='w-full mx-auto bg-gray-100 py-2 text-primary'>
+        <header className='w-full mx-auto bg-gray-100 py-2 text-primary sticky top-0 shadow-md z-50'>
             <div className='w-10/12 mx-auto flex items-center justify-between '>
                 <Link href='/'><Image src={logo} alt='Kitchen Kraze Logo' width={180} height={40} /></Link>
                 <div>

@@ -1,6 +1,6 @@
-import FooterFeatures from './main/FooterFeatures'
-import FooterQuickLinks from './main/FooterQuickLinks'
-import FooterSubscribe from './main/FooterSubscribe'
+import FooterFeatures from './main/footercomp/FooterFeatures'
+import FooterQuickLinks from './main/footercomp/FooterQuickLinks'
+import FooterSubscribe from './main/footercomp/FooterSubscribe'
 
 const Footer = () => {
     return (

@@ -1,8 +1,9 @@
+import ProductsLoader from './components/Loader/ProductsLoader';
 
 export default function Home() {
   return (
     <div>
-      <h2>Home Page...</h2>
+      <ProductsLoader cardCount={4}/>
     </div>
   )
 }
