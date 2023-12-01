@@ -14,7 +14,6 @@ export class ProductsController {
   async getProductsByCategory (
     @Query('categoryName') categoryName: string,
   ):Promise<Products[]>{
-    console.log(categoryName);
     return this.productsService.getProductsByCategory(categoryName);
   }
 }
