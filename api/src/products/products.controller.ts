@@ -1,4 +1,4 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { Products } from 'src/schema/products.schema';
 
@@ -8,12 +8,23 @@ export class ProductsController {
 
   @Get()
   async getAllProducts ():Promise<Products[]>{
-    return this.productsService.findAllProducts();
+    return this.productsService.getAllProducts();
   }
   @Get('category')
   async getProductsByCategory (
     @Query('categoryName') categoryName: string,
   ):Promise<Products[]>{
     return this.productsService.getProductsByCategory(categoryName);
+  }
+  @Get('featured')
+  async getFeaturedProducts (
+  ):Promise<Products[]>{
+    return this.productsService.getFeaturedProducts();
+  }
+  @Get(':id')
+  async getSingleProduct (
+    @Param('id') productId:string
+  ):Promise<Products[]>{
+    return this.productsService.getSingleProduct(productId);
   }
 }
