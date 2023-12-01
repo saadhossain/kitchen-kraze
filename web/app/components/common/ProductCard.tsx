@@ -5,10 +5,12 @@ import { FaCheckCircle, FaStar } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 
 const ProductCard = ({ product }: { product: ProductType }) => {
+    const discountPercent = Math.ceil(((product.regularPrice - product.salePrice) / product.regularPrice) * 100);
     return (
         <div className='rounded-md bg-gray-100 hover:shadow-md transition-shadow'>
             {/* Product Image */}
-            <Link href={`/product/${product._id}`}>
+            <Link href={`/product/${product._id}`} className='relative'>
+                <p className='px-2 bg-red-600 text-white rounded absolute top-2 right-2'>{discountPercent}% OFF</p>
                 <Image
                     src={product.images[0]}
                     alt={product.name}
