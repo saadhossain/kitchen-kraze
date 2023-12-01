@@ -14,4 +14,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-export const AppName = 'Kitchen Kraze'
+export const AppName = 'Kitchen Kraze';
+
+export const API = 'http://localhost:3001'
