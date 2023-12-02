@@ -11,7 +11,7 @@ export interface ProductType {
     height: number;
     salePrice: number;
     regularPrice: number;
-    categories: [];
+    categories: string[];
     images: string[];
     reviews: []
 }
