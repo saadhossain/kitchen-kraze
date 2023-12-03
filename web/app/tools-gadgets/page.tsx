@@ -1,21 +1,14 @@
 'use client'
-import { useQuery } from '@tanstack/react-query';
 import ProductsLoader from '../components/Loader/ProductsLoader';
 import ProductCard from '../components/common/ProductCard';
-import { API } from '../config/config';
 import { ProductType } from '../types/ProductType';
+import { FetchProducts } from '../utils/utils';
 
 const ToolsAndGadgets = () => {
   // metadata.title= `Cookware | ${AppName}`;
   // metadata.description = `Cookware | Find Everything you need for Cookware.`
-  const { data: products = [], isLoading } = useQuery({
-    queryKey: ['products'],
-    queryFn: async () => {
-      const res = await fetch(`${API}/products/category?categoryName=Tools_Gadgets`);
-      const data = await res.json()
-      return data
-    }
-  })
+
+  const { products, isLoading } = FetchProducts('category?categoryName=Tools_Gadgets')
   if (isLoading) {
     return <ProductsLoader cardCount={8} />
   }

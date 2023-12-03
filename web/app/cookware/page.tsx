@@ -4,18 +4,14 @@ import ProductsLoader from '../components/Loader/ProductsLoader';
 import ProductCard from '../components/common/ProductCard';
 import { API } from '../config/config';
 import { ProductType } from '../types/ProductType';
+import { FetchProducts } from '../utils/utils';
 
 const Cookware = () => {
   // metadata.title= `Cookware | ${AppName}`;
   // metadata.description = `Cookware | Find Everything you need for Cookware.`
-  const { data: products = [], isLoading } = useQuery({
-    queryKey: ['products'],
-    queryFn: async () => {
-      const res = await fetch(`${API}/products/category?categoryName=Cookware`);
-      const data = await res.json()
-      return data
-    }
-  })
+
+  //Fetch Products from API
+  const {products, isLoading} = FetchProducts('category?categoryName=Cookware')
   if (isLoading) {
     return <ProductsLoader cardCount={8} />
   }
