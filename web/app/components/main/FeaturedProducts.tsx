@@ -1,25 +1,20 @@
 'use client'
-import { API } from '@/app/config/config';
 import { ProductType } from '@/app/types/ProductType';
-import { useEffect, useState } from 'react';
-import ProductsLoader from '../Loader/ProductsLoader';
 import ProductCard from '../common/ProductCard';
+import { useQuery } from '@tanstack/react-query';
+import { API } from '@/app/config/config';
+import ProductsLoader from '../Loader/ProductsLoader';
 
-const FeaturedProducts = () => {
-    const [loading, setLoading] = useState(false);
-    const [products, setProducts] = useState<[] | null>();
-    useEffect(() => {
-        const getProducts = async () => {
-            setLoading(true);
+const FeaturedProducts =  () => {
+    const { data: products = [], isLoading } = useQuery({
+        queryKey: ['products'],
+        queryFn: async () => {
             const res = await fetch(`${API}/products/featured`);
-            const data = await res.json();
-            setProducts(data);
-            setLoading(false);
+            const data = await res.json()
+            return data
         }
-        getProducts();
-    },
-        []);
-    if (loading) {
+    })
+    if (isLoading) {
         return <ProductsLoader cardCount={8} />
     }
     return (

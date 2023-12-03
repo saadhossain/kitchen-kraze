@@ -1,34 +1,28 @@
 'use client'
-import React, { useEffect, useState } from 'react'
-import { metadata } from '../layout';
-import { API, AppName } from '../config/config';
+import { useQuery } from '@tanstack/react-query';
 import ProductsLoader from '../components/Loader/ProductsLoader';
-import { ProductType } from '../types/ProductType';
 import ProductCard from '../components/common/ProductCard';
+import { API } from '../config/config';
+import { ProductType } from '../types/ProductType';
 
 const TabletopAndDining = () => {
   // metadata.title= `Cookware | ${AppName}`;
   // metadata.description = `Cookware | Find Everything you need for Cookware.`
-  const [loading, setLoading] = useState(false);
-  const [products, setProducts] = useState<[] | null>();
-  useEffect(() => {
-    const getProducts = async () => {
-      setLoading(true);
+  const { data: products = [], isLoading } = useQuery({
+    queryKey: ['products'],
+    queryFn: async () => {
       const res = await fetch(`${API}/products/category?categoryName=Tabletop_Dining`);
-      const data = await res.json();
-      setProducts(data);
-      setLoading(false);
+      const data = await res.json()
+      return data
     }
-    getProducts();
-  },
-    []);
-  if(loading){
-    return <ProductsLoader cardCount={8}/>
+  })
+  if (isLoading) {
+    return <ProductsLoader cardCount={8} />
   }
   return (
     <div className='w-10/12 mx-auto my-10 grid grid-cols-4 gap-5'>
       {
-        products?.map((product:ProductType)=><ProductCard key={product._id} product={product}/>)
+        products?.map((product: ProductType) => <ProductCard key={product._id} product={product} />)
       }
     </div>
   )
