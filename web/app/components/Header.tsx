@@ -40,7 +40,7 @@ const Header = () => {
                             navLinks.map((link: LinkType) => <li key={link.href}>
                                 <Link
                                     href={link.href}
-                                    className={`${activePath === link.href ? 'text-secondary border-t-2 border-secondary' : 'text-primary'} transition-all`}
+                                    className={`${activePath === link.href ? `text-secondary ${isCollapse ? 'border-l-2 pl-2':'border-t-2'} border-secondary` : 'text-primary'} transition-all`}
                                 >{link.title}</Link></li>)
                         }
                     </ul>
