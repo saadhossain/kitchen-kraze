@@ -1,5 +1,5 @@
 export const featureSlideSettings = {
-    dots: true,
+    // dots: true,
     speed: 2000,
     slidesToShow: 4,
     slidesToScroll: 12,
@@ -13,7 +13,7 @@ export const featureSlideSettings = {
             breakpoint: 1024,
             settings: {
                 slidesToShow: 5,
-                slidesToScroll: 5,
+                slidesToScroll: 12,
                 infinite: true,
                 dots: true
             }
@@ -21,16 +21,16 @@ export const featureSlideSettings = {
         {
             breakpoint: 600,
             settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
-                initialSlide: 2
+                slidesToShow: 2,
+                slidesToScroll: 12,
+                initialSlide: 0
             }
         },
         {
             breakpoint: 480,
             settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2
+                slidesToShow: 1,
+                slidesToScroll: 12
             }
         }
     ]

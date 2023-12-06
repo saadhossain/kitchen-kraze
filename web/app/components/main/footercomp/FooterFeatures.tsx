@@ -3,9 +3,9 @@ import { FaCreditCard } from "react-icons/fa";
 import { TbTruckDelivery, TbTruckReturn } from "react-icons/tb";
 const FooterFeatures = () => {
     return (
-        <div className='w-full bg-gray-100 text-primary'>
+        <div className='w-full bg-gray-100 text-primary md:mt-0 mt-40'>
             <div className='w-10/12 mx-auto py-12'>
-                <div className='grid grid-cols-4 justify-between gap-14'>
+                <div className='grid md:grid-cols-4 grid-cols-2 justify-between md:gap-14 gap-5'>
                     <div className='flex flex-col gap-5 items-center justify-center text-center cursor-pointer footer-feature'>
                         <BsCartCheckFill className='w-10 h-10 feature-icon' />
                         <p>We made it easy for you to shop from our website or Apps.</p>

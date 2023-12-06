@@ -15,7 +15,7 @@ const ToolsAndGadgets = async() => {
     return <ProductsLoader cardCount={8} />
   }
   return (
-    <div className='w-10/12 mx-auto my-10 grid grid-cols-4 gap-5'>
+    <div className='w-11/12 md:w-10/12 mx-auto my-10 grid md:grid-cols-4 grid-cols-2 md:gap-5 gap-2'>
       {
         products?.map((product: ProductType) => <ProductCard key={product._id} product={product} />)
       }

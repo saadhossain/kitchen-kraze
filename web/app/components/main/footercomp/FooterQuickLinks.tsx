@@ -21,9 +21,9 @@ const FooterQuickLinks = () => {
     ]
   return (
     <div className='w-full bg-[#FBFBFB] py-14'>
-        <div className='w-10/12 mx-auto flex gap-10 justify-between'>
+        <div className='w-10/12 mx-auto grid md:grid-cols-4 grid-cols-2 gap-10 justify-between'>
             <div>
-                <h3 className='text-xl font-semibold'>Customer Center</h3>
+                <h3 className='md:text-xl text-md font-semibold'>Customer Center</h3>
                 <ul className='mt-5 flex flex-col gap-3'>
                     {
                         customerLinks.map((link:LinkType)=> <li key={link.href} className='text-sm'><Link href={link.href}>{link.title}</Link></li>)
@@ -31,7 +31,7 @@ const FooterQuickLinks = () => {
                 </ul>
             </div>
             <div>
-                <h3 className='text-xl font-semibold'>About the Company</h3>
+                <h3 className='md:text-xl text-md font-semibold'>About the Company</h3>
                 <ul className='mt-5 flex flex-col gap-3'>
                     {
                         companyLinks.map((link:LinkType)=> <li key={link.href} className='text-sm'><Link href={link.href}>{link.title}</Link></li>)
@@ -44,7 +44,7 @@ const FooterQuickLinks = () => {
                 </div>
             </div>
             <div className='flex flex-col gap-5 text-sm'>
-                <h3 className='text-xl font-semibold'>Where we are?</h3>
+                <h3 className='md:text-xl text-md font-semibold'>Where we are?</h3>
                 <span className='flex gap-2 items-center'><FaAddressCard /> The Kitchen Kraze Limited.(BIN-248737622)</span>
                 <span className='flex gap-2 items-center'><MdLocationOn/> 23/25 Sparkle Tower, Mirpur DOHS, Dhaka, BD-1216.</span>
                 <span className='flex gap-2 items-center'><FaPhoneAlt /> +880 186 - 5533874</span>

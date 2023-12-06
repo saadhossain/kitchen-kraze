@@ -15,7 +15,7 @@ const FeaturedProducts = () => {
     //Fetch Products from API
     useEffect(() => {
         const getProduct = async () => {
-            const res = await fetch(`${API}/products/featured`);
+            const res = await fetch(`${API}/products/featured`,{next:{revalidate:6400}});
             const data = await res.json();
             setProducts(data);
         }
