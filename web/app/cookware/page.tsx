@@ -1,18 +1,17 @@
-'use client'
-import { useQuery } from '@tanstack/react-query';
 import ProductsLoader from '../components/Loader/ProductsLoader';
 import ProductCard from '../components/common/ProductCard';
-import { API } from '../config/config';
+import { AppName } from '../config/config';
+import { metadata } from '../layout';
 import { ProductType } from '../types/ProductType';
-import { FetchProducts } from '../utils/utils';
+import { fetchProducts } from '../utils/utils';
 
-const Cookware = () => {
-  // metadata.title= `Cookware | ${AppName}`;
-  // metadata.description = `Cookware | Find Everything you need for Cookware.`
+const Cookware = async() => {
+  metadata.title= `Cookware | ${AppName}`;
+  metadata.description = `Cookware | Find Everything you need for Cookware.`
 
   //Fetch Products from API
-  const {products, isLoading} = FetchProducts('category?categoryName=Cookware')
-  if (isLoading) {
+  const products = await fetchProducts('category?categoryName=Cookware')
+  if (!products) {
     return <ProductsLoader cardCount={8} />
   }
   return (

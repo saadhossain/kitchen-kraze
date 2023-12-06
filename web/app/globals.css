@@ -32,7 +32,7 @@
   content: url('../public/assets/right-arrow.png')!important;
 }
 .slick-dots li.slick-active button:before{
-  color: #FE5E05;
+  color: #FE5E05!important;
 }
 
 .footer-feature:hover .feature-icon{

@@ -1,16 +1,17 @@
-'use client'
 import ProductsLoader from '../components/Loader/ProductsLoader';
 import ProductCard from '../components/common/ProductCard';
+import { AppName } from '../config/config';
+import { metadata } from '../layout';
 import { ProductType } from '../types/ProductType';
-import { FetchProducts } from '../utils/utils';
+import { fetchProducts } from '../utils/utils';
 
-const AllProducts = () => {
-  // metadata.title = `All Products | ${AppName}`;
-  // metadata.description = `All Products | Choose your item among all our products.`;
+const AllProducts = async() => {
+  metadata.title = `All Products | ${AppName}`;
+  metadata.description = `All Products | Choose your item among all our products.`;
 
   //Fetch Products from API
-  const { products, isLoading } = FetchProducts('')
-  if (isLoading) {
+  const products = await fetchProducts('')
+  if (!products) {
     return <ProductsLoader cardCount={8} />
   }
   return (
