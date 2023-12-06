@@ -18,9 +18,11 @@ const SingleProduct = ({ params }: { params: { _id: string } }) => {
       setProduct(data[0]);
     }
     getProduct();
-    setFeatureImg(product?.images[0]);
   },
-    [product?.images, productId]);
+  [productId]);
+  useEffect(()=>{
+    setFeatureImg(product?.images[0]);
+  },[product?.images])
   if (!product) {
     return <ProductSingleLoader />
   }
