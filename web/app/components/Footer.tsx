@@ -5,9 +5,9 @@ import FooterSubscribe from './main/footercomp/FooterSubscribe'
 const Footer = () => {
     return (
         <footer>
-                <FooterFeatures/>
-                <FooterSubscribe/>
-                <FooterQuickLinks/>
+            <FooterFeatures />
+            <FooterSubscribe />
+            <FooterQuickLinks />
         </footer>
     )
 }

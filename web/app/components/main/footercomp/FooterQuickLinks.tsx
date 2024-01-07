@@ -19,6 +19,12 @@ const FooterQuickLinks = () => {
         {title:'Terms of Service', href:'/termsofservice'},
         {title:'Privacy Policy', href:'/privacypolicy'},
     ]
+    const businessLinks = [
+        {title:'Affiliate Program', href:'/affiliate'},
+        {title:'Refer A Friend', href:'/refer'},
+        {title:'Sell with Us', href:'/sell-with-us'},
+        {title:'Promotions', href:'/promotions'},
+    ]
   return (
     <div className='w-full bg-[#FBFBFB] py-14'>
         <div className='w-10/12 mx-auto grid md:grid-cols-4 grid-cols-2 gap-10 justify-between'>
@@ -49,6 +55,15 @@ const FooterQuickLinks = () => {
                 <span className='flex gap-2 items-center'><MdLocationOn/> 23/25 Sparkle Tower, Mirpur DOHS, Dhaka, BD-1216.</span>
                 <span className='flex gap-2 items-center'><FaPhoneAlt /> +880 186 - 5533874</span>
                 <span className='flex gap-2 items-center'><FaEnvelope /> support@kitchenkraze.com</span>
+            </div>
+            {/* Footer Business Column */}
+            <div className='flex flex-col gap-5 text-sm'>
+            <h3 className='md:text-xl text-md font-semibold'>Business</h3>
+            <ul className='mt-5 flex flex-col gap-3'>
+                    {
+                        businessLinks.map((link:LinkType)=> <li key={link.href} className='text-sm'><Link href={link.href}>{link.title}</Link></li>)
+                    }
+                </ul>
             </div>
         </div>
     </div>
